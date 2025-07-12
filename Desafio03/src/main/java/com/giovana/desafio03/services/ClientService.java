@@ -2,19 +2,14 @@ package com.giovana.desafio03.services;
 
 import com.giovana.desafio03.entities.Client;
 import com.giovana.desafio03.repositories.ClientRepository;
-import com.giovana.desafio03.services.exceptions.DatabaseException;
 import com.giovana.desafio03.services.exceptions.ResourceNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.sql.PreparedStatement;
-import java.util.Optional;
 
 @Service
 public class ClientService {
