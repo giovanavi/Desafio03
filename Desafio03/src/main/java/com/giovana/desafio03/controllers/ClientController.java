@@ -26,33 +26,33 @@ public class ClientController {
         return ResponseEntity.ok(client);
     }
 
-//    // Busca paginada de recursos
-//    @GetMapping
-//    public ResponseEntity<Page<Client>> findAll(Pageable pageable){
-//        Page<Client> result =service.findAll(pageable);
-//        return ResponseEntity.ok(result);
-//    }
-//
-//    // Inserir novo recurso
-//    @PostMapping
-//    public ResponseEntity<Client> insert(@Valid @RequestBody Client client){
-//        service.insert(client);
-//        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-//                .buildAndExpand(client.getId()).toUri();
-//        return ResponseEntity.created(uri).body(client);
-//    }
-//
-//    // Atualizar recurso
-//    @PutMapping(value = "/{id}")
-//    public ResponseEntity<Client> update(@PathVariable Long id, @Valid @RequestBody Client client){
-//        service.update(id, client);
-//        return ResponseEntity.ok(client);
-//    }
-//
-//    // Deletar recurso
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity<Client> update(@PathVariable Long id){
-//        service.delete(id);
-//        return ResponseEntity.noContent().build();
-//    }
+    // Busca paginada de recursos
+    @GetMapping
+    public ResponseEntity<Page<Client>> findAll(Pageable pageable){
+        Page<Client> result =service.findAll(pageable);
+        return ResponseEntity.ok(result);
+    }
+
+    // Inserir novo recurso
+    @PostMapping
+    public ResponseEntity<Client> insert(@Valid @RequestBody Client client){
+        service.insert(client);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(client.getId()).toUri();
+        return ResponseEntity.created(uri).body(client);
+    }
+
+    // Atualizar recurso
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Client> update(@PathVariable Long id, @Valid @RequestBody Client client){
+        client = service.update(id, client);
+        return ResponseEntity.ok(client);
+    }
+
+    // Deletar recurso
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Client> update(@PathVariable Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
